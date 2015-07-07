@@ -714,6 +714,9 @@ ol.proj.getTransform = function(source, destination) {
  */
 ol.proj.getTransformFromProjections =
     function(sourceProjection, destinationProjection) {
+  if (sourceProjection === destinationProjection) {
+      return ol.proj.identityTransform;
+  }
   var transforms = ol.proj.transforms_;
   var sourceCode = sourceProjection.getCode();
   var destinationCode = destinationProjection.getCode();
